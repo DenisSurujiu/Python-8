@@ -16,11 +16,34 @@ def load(file_path):
 def search(file_path):
     search = input("Введите имя фамилию или почту для поиска контакта")
 
-    with open(file_path, "r") as file
+    with open(file_path, "r") as file:
         for line in file:
             if search.lower() in line.lower():
                 print(line.strip())
-                
+
+def update(file_path):
+    name = input("Введите имя контакта, которую нужна изменить: ")
+    surname = input("Введите фамилию контакта, которую нужна изменить:")
+
+    new_name = input("Введите новое имя:")
+    new_surname = input("Введите новою фамилию:")
+    new_Email = input("Введите новую почту:")
+    new_Phone = input("Введите новый контакт:")
+
+    with open(file_path, "r+") as file:
+        lines = file.readlines()
+        file.seek(0)
+        for line in lines:
+            if name.lower() in line.lower() and surname.lower() in line.lower():
+                file.write(f"{new_name}, {new_surname}, {new_Email}, {new_Phone}n")
+            else:
+                file.write(line)
+        file.truncate()
+
+
+        
+
+
 
 
 
