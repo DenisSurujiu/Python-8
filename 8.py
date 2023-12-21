@@ -1,3 +1,4 @@
+#file_path- Контакты личного телефона.txt
 
 def add(file_path):
     name = input("Введите имя:")
@@ -59,7 +60,47 @@ def imports(file_path):
        with open(file_path, "a") as file:
         for line in imports_file:
             file.write(line)
-            
+
+def ls_menu():
+    while True:
+        print('\nМЕНЮ')
+        print('load. Показать все записи.')
+        print('search. Найти номер по имени, фамилии и номеру телефона.')
+        print('add. Добавить новую запись.')
+        print('update. Изменить существующую запись.')
+        print('delete. Удалить запись.')
+        print('imports. Импорт контакта из текстового файла.')
+        print('exit. Закрыть программу.\n')
+
+while True:
+    command = input("Введите команду ")
+if command == "/load":
+    file_path = load()
+elif command == "/search":
+    search()
+    print("Поиск запись")
+elif command == "/delete":
+    delete()
+    print("Контакт удалён")
+elif command == "/update":
+    update()
+    print("Текущий контакт изменён")
+    print(phonebook)
+elif command == "/imports":
+    imports()
+    print("Задайте путь к файлу")
+elif command == "/add":
+    name = input("Введите имя: ")
+    surname = input("Введите фамилию: ")
+    email = input("Введите EMAIL: ")
+    phone = input("Введите номера телефонов через пробел: ").split()
+elif (command == "/exit"):
+    break
+if phone != "":
+    file_path[name] = phone
+else:
+    print("Вы ввели не верную комманду, изучите мануал!")
+
         
 
 
