@@ -52,7 +52,14 @@ def delete(file_path):
             file.write(line)
         file.truncate()
 
+def imports(file_path):
+    imports_file_path = input(":")
 
+    with open(imports_file_path, "r") as imports_file:
+       with open(file_path, "a") as file:
+        for line in imports_file:
+            file.write(line)
+            
         
 
 
