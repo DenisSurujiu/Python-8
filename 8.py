@@ -40,6 +40,18 @@ def update(file_path):
                 file.write(line)
         file.truncate()
 
+def delete(file_path):
+    name = input("Введите имя контакта, которую нужна удалить: ")
+    surname = input("Введите фамилию контакта, которую нужна удалить:")
+
+    with open(file_path, "r+") as file:
+        lines = file.readlines()
+        file.seek(0)
+    for line in lines:
+        if name.lower() in line.lower() and surname.lower() in line.lower():
+            file.write(line)
+        file.truncate()
+
 
         
 
