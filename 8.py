@@ -13,7 +13,14 @@ def load(file_path):
         for line in file:
             print(line.strip())
 
+def search(file_path):
+    search = input("Введите имя фамилию или почту для поиска контакта")
 
+    with open(file_path, "r") as file
+        for line in file:
+            if search.lower() in line.lower():
+                print(line.strip())
+                
 
 
 
